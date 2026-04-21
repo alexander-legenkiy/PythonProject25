@@ -1,7 +1,7 @@
 import masks
 
 
-def mask_account_card(card_or_accaunt_information):
+def mask_account_card(card_or_accaunt_information: str) -> str:
     # """функция принимает информацию о счетах и картах и обрабатывает их"""
 
     numbers_count = 0
@@ -42,14 +42,14 @@ def mask_account_card(card_or_accaunt_information):
         # если в введённой информации 20 цифр, то введён номер счёта
         mask_account_number = masks.get_mask_account(card_or_account_number)
         # преобразуем номер счёта в заданную маску используя функцию get_mask_account из файла masks.py
-        full_mask_account_number = "Счёт " + mask_account_number
+        full_mask_account_number = str("Счёт " + mask_account_number)
         return full_mask_account_number
 
     if numbers_count == 16:
         # если в введённой информации 16 цифр, то введён номер карты
         mask_card_number = masks.get_mask_card_number(card_or_account_number)
         # преобразуем номер счёта в заданную маску используя функцию get_mask_card_number из файла masks.py
-        full_card_number = card_or_account_name_correct_final + " " + mask_card_number
+        full_card_number = str(card_or_account_name_correct_final + " " + mask_card_number)
         # добаляем к названию карты маску номера карты
         return full_card_number
 
@@ -63,12 +63,12 @@ card_or_accaunt_information = input("Введите номер Вашего ба
 print(mask_account_card(card_or_accaunt_information))
 
 
-def get_date(date_information):
+def get_date(date_information: str) -> str:
     # """функция принимает на вход дату в определённом формате и возвращает дату в заданном формате"""
-    year = date_information[0:4]
-    month = date_information[5:7]
-    day = date_information[8:10]
-    new_date = day + "." + month + "." + year
+    year = str(date_information[0:4])
+    month = str(date_information[5:7])
+    day = str(date_information[8:10])
+    new_date = str(day + "." + month + "." + year)
     return new_date
 
 
