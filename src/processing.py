@@ -1,9 +1,10 @@
-def filter_by_state(dictionary_list, state="EXECUTED"):
+def filter_by_state(dictionary_list: list, state="EXECUTED") -> list:
     # """функция принимает список словарей и возвращает новый список словарей,
     # исходя из значения ключа state (по умолчанию установлено значение "EXECUTED" """
 
     new_dictionary_list = []
-# создаём пустой список для формирования нового списка словарей
+    # создаём пустой список для формирования нового списка словарей
+
     for key in dictionary_list:
         if key["state"] == state:
             new_dictionary_list.append(key)
@@ -23,7 +24,7 @@ dictionary_list = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:
 print(filter_by_state(dictionary_list, "EXECUTED"))
 
 
-def sort_by_date(dictionary_list, reverse=False):
+def sort_by_date(dictionary_list: list, reverse=False) -> list:
     # """функция принимает список словарей и возвращает новый список отсортированный по дате,
     # по умолчанию отсортированный по убыванию"""
 
