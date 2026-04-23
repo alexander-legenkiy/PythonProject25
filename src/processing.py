@@ -23,6 +23,8 @@ print(filter_by_state(dictionary_list, "EXECUTED"))
 
 
 
+
+
 def sort_by_date(dictionary_list, reverse = False):
 # функция принимает список словарей и возвращает новый список отсортированный по дате, по умолчанию отсортированный по убыванию
 
