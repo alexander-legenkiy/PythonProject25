@@ -26,6 +26,7 @@ def mask_account_card(card_or_accaunt_information: str) -> str:
             card_or_account_name = card_or_account_name + i
             # формируем строку с названием карты или словом "счёт"
 
+
     for i in card_or_account_name:
         # разбиваем строку названия карты на отдельные слова, начинающиеся с большой буквы.
         if i.islower():
