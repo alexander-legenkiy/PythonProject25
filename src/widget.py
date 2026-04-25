@@ -1,17 +1,17 @@
-import masks
+from src import masks
 
 
 def mask_account_card(card_or_accaunt_information: str) -> str:
     # """функция принимает информацию о счетах и картах и обрабатывает их"""
 
     numbers_count = 0
-# устанавливаем счётчик цифр в введённой информации
+    # устанавливаем счётчик цифр в введённой информации
     card_or_account_number = ""
-# устанавливаем пустую строку для сбора номера счёта или номера карты
+    # устанавливаем пустую строку для сбора номера счёта или номера карты
     card_or_account_name = ""
-# устанавливаем пустую строку для сбора названия карты
+    # устанавливаем пустую строку для сбора названия карты
     card_or_account_name_correct = ""
-# устанавливаем пустую строку для сбора названия карты, c учётом отступов между словами
+    # устанавливаем пустую строку для сбора названия карты, c учётом отступов между словами
     for i in card_or_accaunt_information:
         if i.isdigit():
             # выбираем из введённой информации цифры
@@ -25,7 +25,6 @@ def mask_account_card(card_or_accaunt_information: str) -> str:
             # выбираем из введённой информации буквы
             card_or_account_name = card_or_account_name + i
             # формируем строку с названием карты или словом "счёт"
-
 
     for i in card_or_account_name:
         # разбиваем строку названия карты на отдельные слова, начинающиеся с большой буквы.
@@ -46,7 +45,7 @@ def mask_account_card(card_or_accaunt_information: str) -> str:
         full_mask_account_number = str("Счёт " + mask_account_number)
         return full_mask_account_number
 
-    if numbers_count == 16:
+    elif numbers_count == 16:
         # если в введённой информации 16 цифр, то введён номер карты
         mask_card_number = masks.get_mask_card_number(card_or_account_number)
         # преобразуем номер счёта в заданную маску используя функцию get_mask_card_number из файла masks.py
@@ -54,7 +53,7 @@ def mask_account_card(card_or_accaunt_information: str) -> str:
         # добаляем к названию карты маску номера карты
         return full_card_number
 
-    if numbers_count != 20 and numbers_count != 16:
+    else:
         # если в введённой информации не 16 или 20 цифр, то функция выдаёт информацию об ошибке
         return "Ошибка ввода информации!"
 
