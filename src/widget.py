@@ -1,4 +1,4 @@
-from src import masks
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(card_or_accaunt_information: str) -> str:
@@ -40,14 +40,14 @@ def mask_account_card(card_or_accaunt_information: str) -> str:
 
     if numbers_count == 20:
         # если в введённой информации 20 цифр, то введён номер счёта
-        mask_account_number = masks.get_mask_account(card_or_account_number)
+        mask_account_number = get_mask_account(card_or_account_number)
         # преобразуем номер счёта в заданную маску используя функцию get_mask_account из файла masks.py
         full_mask_account_number = str("Счёт " + mask_account_number)
         return full_mask_account_number
 
     elif numbers_count == 16:
         # если в введённой информации 16 цифр, то введён номер карты
-        mask_card_number = masks.get_mask_card_number(card_or_account_number)
+        mask_card_number = get_mask_card_number(card_or_account_number)
         # преобразуем номер счёта в заданную маску используя функцию get_mask_card_number из файла masks.py
         full_card_number = str(card_or_account_name_correct_final + " " + mask_card_number)
         # добаляем к названию карты маску номера карты
@@ -59,19 +59,27 @@ def mask_account_card(card_or_accaunt_information: str) -> str:
 
 
 # проверка работы функции:
-card_or_accaunt_information = input("Введите номер Вашего банковского счёта или номер карты:")
-print(mask_account_card(card_or_accaunt_information))
+# 7000792289606361
+# card_or_accaunt_information = input("Введите номер Вашего банковского счёта или номер карты:")
+# print(mask_account_card(card_or_accaunt_information))
 
 
 def get_date(date_information: str) -> str:
     # """функция принимает на вход дату в определённом формате и возвращает дату в заданном формате"""
-    year = str(date_information[0:4])
-    month = str(date_information[5:7])
-    day = str(date_information[8:10])
-    new_date = str(day + "." + month + "." + year)
-    return new_date
+    if len(date_information) != 0:
+        year = str(date_information[0:4])
+        month = str(date_information[5:7])
+        day = str(date_information[8:10])
+        new_date = str(day + "." + month + "." + year)
+        return new_date
+    else:
+        return "Ошибка ввода информации!"
 
 
 # проверка работы функции:
-date_information = input("Введите дату:")
-print(get_date(date_information))
+# date_information = input("Введите дату:")
+# print(get_date(date_information))
+# Данные для тестирования:
+# Номер карты: Visa Platinum 7000792289606361
+# Номер счёта: Счет 73654108430135874305
+# Дата: 2019-07-03
