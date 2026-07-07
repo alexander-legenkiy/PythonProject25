@@ -1,8 +1,7 @@
 import pytest
 
-from src.generator import filter_by_currency
-from src.generator import transaction_descriptions
-from src.generator import card_number_generator
+from src.generator import card_number_generator, filter_by_currency, transaction_descriptions
+
 
 # Проверка, что функция корректно фильтрует транзакции по заданной валюте
 def test_filter_by_currency(list_state_2, result_state_5):
@@ -48,6 +47,7 @@ def test_card_number_generator():
 def test_card_number_generator():
     assert list(card_number_generator(100000000,100000001)) == ['0000 0001 0000 0000', '0000 0001 0000 0001']
 
+# Проверка работы генератора при выходе за рамки заданного диапазона.
 def test_card_number_generator():
     assert list(card_number_generator(1,10000000000000001)) == []
 
