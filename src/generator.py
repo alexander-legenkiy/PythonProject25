@@ -6,7 +6,7 @@ def filter_by_currency(transactions: list[dict], currency: str):
     где валюта операции соответствует заданной"""
     usd_transactions = filter(lambda x: x['operationAmount']['currency']['name'] == currency, transactions)
     return usd_transactions
-
+#
 # # Проверка работы функции:
 # transactions = ([{"id": 939719570,
 #             "state": "EXECUTED",

@@ -15,7 +15,7 @@
 Клонируйте репозитарий 
 ```
 git clone
-[GitHub](https://github.com/alexander-legenkiy/PythonProject25/pull/1)
+[GitHub](https://github.com/alexander-legenkiy/PythonProject25/pull/9)
 ```
 
 ## Использование:
